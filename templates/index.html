@@ -44,7 +44,8 @@
         <div class="col-lg-10 mx-auto">
           <img src="{{ url_for('static', path='img/athena.png') }}" >
           <h2>Athena Says:</h2>
-          <p class="lead mb-5" id="fortune">{{ fortunes }}</p>
+          <p class="lead mb-5" id="fortune">{{ fortunes[<script> rand() </script>] }}</p>
+          <p id="rand" style="display:none"></p>
         </div>
       </div>
     </div>
@@ -56,9 +57,6 @@
     }
     
     function show() {
-      var fortunes = document.getElementById("fortune").innerHTML;
-      console.log(fortunes);
-      document.getElementById("fortune").innerHTML = fortunes;
       var T = document.getElementById("advice");
       T.style.display = "block";
     }
