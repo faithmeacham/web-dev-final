@@ -44,8 +44,7 @@
         <div class="col-lg-10 mx-auto">
           <img src="{{ url_for('static', path='img/athena.png') }}" >
           <h2>Athena Says:</h2>
-          <script> getFortunes(fortunes); </script>
-          <p class="lead mb-5" id="fortune">{{ fortunes[0] }}</p>
+          <p class="lead mb-5" id="fortune">{{ fortune }}</p>
           <p id="rand" style="display:none"></p>
         </div>
       </div>
@@ -53,16 +52,6 @@
   </section>
 
   <script>
-    var fs;
-    
-    function getFortunes(forts){
-      fs = forts;
-    }
-    
-    function rand(){
-      return fs[Math.floor((Math.random() * 100) + 1)];
-    }
-    
     function show() {
       var T = document.getElementById("advice");
       document.getElementById("fortune").innerHTML = rand();
