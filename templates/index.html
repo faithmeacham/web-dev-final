@@ -56,7 +56,8 @@
     }
     
     function show() {
-      document.getElementById("fortune").innerHTML = {{ fortunes[rand()] }};
+      var fortunes = document.getElementById("fortune").innerHTML;
+      document.getElementById("fortune").innerHTML = fortunes[rand()];
       var T = document.getElementById("advice");
       T.style.display = "block";
     }
