@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Athena Advice</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="{{ url_for('static', path='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="{{ url_for('static', path='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', path='vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{{ url_for('static', path='css/stylish-portfolio.min.css') }}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Header -->
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">Select an Offering for Athena</h1>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" onclick="show()" href="#about" type="submit" formmethod="get">Dining Hall Orange</a>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" onclick="show()" href="#about" type="submit" formmethod="get">Hand Written Poem</a>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" onclick="show()" href="#about" type="submit" formmethod="get">Home Made Scarf</a>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" onclick="show()" href="#about" type="submit" formmethod="get">Fresh Picked Flowers</a>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- About -->
+  <section class="content-section bg-light" id="about">
+    <div id="advice" class="container text-center" style="display:none">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <img src="{{ url_for('static', path='img/athena.png') }}" >
+          <h2>Athena Says:</h2>
+          <p class="lead mb-5">{{ fortune }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function show() {
+      var T = document.getElementById("advice");
+      T.style.display = "block";
+    }
+  </script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', path='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', path='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{ url_for('static', path='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{{ url_for('static', path='js/stylish-portfolio.min.js') }}"></script>
+
+</body>
+
+</html>
