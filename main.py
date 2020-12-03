@@ -116,5 +116,5 @@ def createMap(model):
 @app.get("/", response_class=HTMLResponse)
 async def demo(request: Request):
     mymodel = bigram_model(mydata)
-    fortune = generate_sentence(mymodel))
+    fortune = generate_sentence(mymodel)
     return templates.TemplateResponse("index.html", {"request": request, "fortune": fortune})
