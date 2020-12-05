@@ -12,9 +12,9 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-# Part 1: Get bigram and unigram counts
-
 def get_counts(data):
+    """Gets bigram and unigram counts for the fortunes corpus."""
+    
     bigrams = {}
     unigrams = {}
     for i in range (len(data)-1):
@@ -52,10 +52,8 @@ def get_counts(data):
     
     return bigrams, unigrams
 
-
-# Part 2: Build the bigram model
-
 def bigram_model(data):
+    """Builds the bigram model based on the uni/bigram counts."""
 
     bigrams,unigrams = get_counts(data)
     model = {}
@@ -65,9 +63,8 @@ def bigram_model(data):
 
     return model
 
-# Part 3: Use your model to generate a new sentence.
-
 def generate_sentence(model):
+    """Uses bigram model to generate a new sentence."""
 
     begin = False
     end = False
@@ -101,6 +98,8 @@ def generate_sentence(model):
     return sentence
 
 def createMap(model):
+    """Helper function that builds map based on the model generated."""
+    
     options = {}
     for k,v in model: #for each bigram 
         if(k in options): #if a list already exists for a word, k 
@@ -108,10 +107,6 @@ def createMap(model):
         else: #if k in not already a key in options 
             options[k] = [(k,v)] #create a new list whose first value is a tuple of the respective bigram 
     return options 
-
-# @app.get("/", response_class=HTMLResponse)
-# async def demo1(request: Request):
-#     return templates.TemplateResponse("index.html", {"request": request, "fortune": "Please Select Offering"})
 
 @app.get("/", response_class=HTMLResponse)
 async def demo(request: Request):
